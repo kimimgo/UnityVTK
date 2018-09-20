@@ -37,7 +37,7 @@ public class vtptest : MonoBehaviour {
     void Start () {
 
         
-        datapath = @"C:\dev-repos\UnityVTK\UnityVTK\Assets\StreamingAssets\Vtk-Data\vtp_exam\";
+        datapath = @"C:\dev-repos\UnityVTK\Assets\StreamingAssets\Vtk-Data\vtp_exam\";
         //Test23.WaveSurface.t82.vtp";
         prjname = "Test23";
         // Blade1Surface
