@@ -145,8 +145,8 @@ Camera:
   m_GameObject: {fileID: 981683068}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -183,8 +183,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 981683068}
-  m_LocalRotation: {x: -0.12167603, y: 0.84305125, z: -0.21464704, w: -0.47789776}
-  m_LocalPosition: {x: 2.7782266, y: 2.5652096, z: 2.7348278}
+  m_LocalRotation: {x: 0.11296382, y: 0.8481193, z: -0.2008207, w: 0.4770785}
+  m_LocalPosition: {x: -245.10751, y: 144.38742, z: 148.9299}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -294,7 +294,7 @@ GameObject:
   - component: {fileID: 1777766937}
   - component: {fileID: 1777766936}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: vtkmanager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

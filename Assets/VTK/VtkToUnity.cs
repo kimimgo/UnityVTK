@@ -31,6 +31,7 @@ public class VtkToUnity
 		RED_BLUE,
 		RAINBOW
 	}
+    // VtkToUnity 함수 두개로 오버라이드
 	public VtkToUnity(Kitware.VTK.vtkAlgorithmOutput outputPort, GameObject newGo)
 	{
 		name = newGo.name;
@@ -45,9 +46,9 @@ public class VtkToUnity
 		MeshFilter meshFilter = go.AddComponent<MeshFilter> ();
 		meshFilter.sharedMesh = mesh;
 		go.AddComponent<MeshRenderer> ();
-
 	}
-	public VtkToUnity(Kitware.VTK.vtkAlgorithmOutput outputPort, string name)
+    // VtkToUnity 함수 두개로 오버라이드
+    public VtkToUnity(Kitware.VTK.vtkAlgorithmOutput outputPort, string name)
 	{
 		this.name = name;
 		triangleFilter = Kitware.VTK.vtkTriangleFilter.New();
@@ -58,14 +59,6 @@ public class VtkToUnity
 		MeshFilter meshFilter = go.AddComponent<MeshFilter> ();
 		meshFilter.sharedMesh = mesh;
 		go.AddComponent<MeshRenderer> ();
-	}
-
-	~VtkToUnity()
-	{
-		/*
-		foreach (Material mat in go.GetComponent<Renderer>().materials)
-			Object.DestroyImmediate(mat);			
-		*/
 	}
 
 	public void Update()
@@ -228,7 +221,8 @@ public class VtkToUnity
 		colorDataType = VtkColorType.SOLID_COLOR;
 		solidColor = color;
 
-		mat = new Material(Shader.Find("Diffuse"));
+		mat = new Material(Shader.Find("Ciconia Studio/Double Sided/Standard/Diffuse Bump"));
+		//mat = new Material(Shader.Find("Ciconia Studio/Double Sided/Emissive/Diffuse"));
 		mat.color = color;
 		go.GetComponent<Renderer>().material = mat;
 	}
@@ -240,23 +234,24 @@ public class VtkToUnity
 
 		if (colorFieldName != "")
 		{
-			triangleFilter.Update();
-			Kitware.VTK.vtkPolyData pd = triangleFilter.GetOutput();
+			//triangleFilter.Update();
+			//Kitware.VTK.vtkPolyData pd = triangleFilter.GetOutput();
 
-			if (colorDataType == VtkColorType.POINT_DATA)
-				colorArray = pd.GetPointData().GetScalars(colorFieldName);
-			else if (colorDataType == VtkColorType.CELL_DATA)
-				colorArray = pd.GetCellData().GetScalars(colorFieldName);
+			//if (colorDataType == VtkColorType.POINT_DATA)
+			//	colorArray = pd.GetPointData().GetScalars(colorFieldName);
+			//else if (colorDataType == VtkColorType.CELL_DATA)
+			//	colorArray = pd.GetCellData().GetScalars(colorFieldName);
 
-			go.GetComponent<Renderer>().materials = new Material[2] { 
-				new Material(Shader.Find("UFZ/Vertex Color Front")),
-				new Material(Shader.Find("UFZ/Vertex Color Back"))};
+			//go.GetComponent<Renderer>().materials = new Material[2] { 
+			//	new Material(Shader.Find("UFZ/Vertex Color Front")),
+			//	new Material(Shader.Find("UFZ/Vertex Color Back"))};
 		}
 		else
 		{
 			colorArray = null;
-			mat = new Material(Shader.Find("Diffuse"));
-			mat.color = Color.magenta;
+			//mat = new Material(Shader.Find("Diffuse"));
+            mat = new Material(Shader.Find("Ciconia Studio/Double Sided/Standard/Diffuse Bump"));
+            mat.color = Color.magenta;
 			go.GetComponent<Renderer>().material = mat;
 			Debug.Log("Color array " + fieldname + " not found!");
 		}
